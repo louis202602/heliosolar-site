@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: light; }
+  html.dark { color-scheme: dark; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-paper font-body text-ink antialiased dark:bg-ocean-950 dark:text-white;
+    background-image: radial-gradient(circle at 50% -20%, rgba(46,111,149,.08), transparent 38%);
+  }
+  h1, h2, h3, h4 { @apply font-display; }
+  :focus-visible { @apply outline outline-2 outline-offset-2 outline-solar-500; }
+  ::selection { @apply bg-solar-300/60 text-ocean-950; }
+}
+
+@layer utilities {
+  .solar-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: linear-gradient(to bottom, black, transparent 90%);
+  }
+  .glass-panel {
+    @apply border border-white/10 bg-white/[0.055] backdrop-blur-xl;
+  }
+  .text-gradient {
+    background: linear-gradient(110deg, #ffffff 10%, #c8e6f6 52%, #ffd75e 96%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .orbital-ring { animation: orbit 18s linear infinite; }
+  .orbital-ring-reverse { animation: orbit-reverse 24s linear infinite; }
+  .float-slow { animation: float 7s ease-in-out infinite; }
+  .pulse-soft { animation: pulse-soft 4s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .orbital-ring, .orbital-ring-reverse, .float-slow, .pulse-soft { animation: none; }
+  }
+}
+
+@keyframes orbit { to { transform: rotate(360deg); } }
+@keyframes orbit-reverse { to { transform: rotate(-360deg); } }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes pulse-soft { 0%,100% { opacity:.72; transform:scale(1); } 50% { opacity:1; transform:scale(1.04); } }
+
+@layer utilities {
+  .premium-shadow {
+    box-shadow: 0 30px 90px rgba(6, 23, 37, .16);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  main > section { animation: reveal-section .65s ease both; }
+}
+@keyframes reveal-section { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  transform: translateY(-180%);
+  border-radius: 0.75rem;
+  background: #ffffff;
+  color: #081a33;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+:focus-visible {
+  outline: 3px solid #f5bd00;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
