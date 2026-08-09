@@ -14,7 +14,9 @@ const config: Config = {
           300: "#FFD233",
           400: "#FFC01A",
           500: "#FFB800",
-          600: "#E59A00",
+          // 600 is the light-mode accent-text tone: darkened to meet WCAG AA
+          // (>=4.5:1) on white and ocean-50 backgrounds.
+          600: "#8A6300",
           700: "#B87A00",
         },
         ocean: {
@@ -33,7 +35,9 @@ const config: Config = {
         slatebrand: {
           100: "#E6EBEF",
           300: "#A9B7C1",
-          500: "#687B88",
+          // 500 is the primary muted body-text tone: darkened to meet WCAG AA
+          // (>=4.5:1) on white and ocean-50 backgrounds.
+          500: "#556570",
           700: "#344957",
           900: "#172631",
         },

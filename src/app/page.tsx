@@ -56,22 +56,25 @@ const references = [
 ];
 
 const proofs = [
-  { value: "QualiPV 500", label: "Qualification photovoltaïque reconnue" },
-  { value: "500 kWc", label: "Puissance étudiée par projet" },
+  { value: "3 → 500 kWc", label: "Du résidentiel à l’industrie" },
   { value: "25 ans", label: "Horizon de performance des modules" },
-  { value: "360°", label: "Étude, pose, mise en service et suivi" },
+  { value: "1 350 kWh/kWc", label: "Rendement annuel moyen estimé" },
+  { value: "100 %", label: "Études dimensionnées sur mesure" },
 ];
 
 const differentiators = [
   {
+    icon: "engineering" as const,
     title: "Ingénierie, pas de catalogue",
     text: "Chaque implantation est dimensionnée à partir de vos courbes de consommation, de votre toiture et de votre objectif économique — jamais copiée-collée.",
   },
   {
+    icon: "transparency" as const,
     title: "Transparence totale",
     text: "Hypothèses de production, contraintes techniques, rentabilité attendue et limites du projet : tout est expliqué clairement, avant décision.",
   },
   {
+    icon: "contact" as const,
     title: "Un seul interlocuteur",
     text: "De la qualification du besoin à la supervision post-mise en service, un pilotage structuré et un contact identifié tout au long du projet.",
   },
@@ -89,6 +92,44 @@ function CheckIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
       <path d="m5 12 4 4L19 6" />
+    </svg>
+  );
+}
+
+function DiffIcon({ name }: { name: "engineering" | "transparency" | "contact" }) {
+  const common = {
+    viewBox: "0 0 24 24",
+    className: "h-5 w-5",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.7,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    "aria-hidden": true,
+  };
+  if (name === "engineering") {
+    // Blueprint / precision
+    return (
+      <svg {...common}>
+        <path d="M3 21h18M6 21V8l6-4 6 4v13" />
+        <path d="M9.5 21v-4a2.5 2.5 0 0 1 5 0v4M12 8.2v.01" />
+      </svg>
+    );
+  }
+  if (name === "transparency") {
+    // Eye / clarity
+    return (
+      <svg {...common}>
+        <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z" />
+        <circle cx="12" cy="12" r="2.6" />
+      </svg>
+    );
+  }
+  // Single point of contact / person
+  return (
+    <svg {...common}>
+      <circle cx="12" cy="8" r="3.4" />
+      <path d="M5 20c0-3.6 3.1-6 7-6s7 2.4 7 6" />
     </svg>
   );
 }
@@ -238,8 +279,8 @@ export default function AccueilPage() {
             {differentiators.map((item, i) => (
               <Reveal key={item.title} delay={i * 90}>
                 <div className="card-premium h-full p-8">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-solar-500/12 text-solar-600 dark:text-solar-300">
-                    <CheckIcon />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-solar-500/12 text-solar-600 dark:text-solar-300">
+                    <DiffIcon name={item.icon} />
                   </div>
                   <h3 className="mt-6 text-xl font-bold text-ocean-950 dark:text-white">{item.title}</h3>
                   <p className="mt-3 leading-7 text-slatebrand-500 dark:text-ocean-100">{item.text}</p>
@@ -321,23 +362,39 @@ export default function AccueilPage() {
               </div>
             </Reveal>
             <Reveal delay={120}>
-              <div className="relative aspect-video overflow-hidden rounded-[30px] border border-white/10 bg-gradient-to-br from-ocean-700 via-ocean-900 to-black shadow-panel">
+              <Link
+                href="/realisations"
+                aria-label="Découvrir nos réalisations photovoltaïques"
+                className="group relative block aspect-video overflow-hidden rounded-[30px] border border-white/10 bg-gradient-to-br from-ocean-700 via-ocean-900 to-black shadow-panel transition-all duration-500 ease-premium hover:border-solar-300/40"
+              >
                 <div className="solar-grid absolute inset-0 opacity-35" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(255,215,94,0.18),transparent_28%)]" />
+                {/* Stylised panel-array motif — a real branded visual, not a fake player */}
+                <div className="absolute inset-0 grid grid-cols-6 gap-1.5 p-6 opacity-40 [perspective:900px]">
+                  {Array.from({ length: 18 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className="rounded-[3px] border border-white/10 bg-gradient-to-br from-ocean-400/25 to-ocean-950"
+                    />
+                  ))}
+                </div>
                 <div className="absolute inset-0 grid place-items-center">
-                  <div className="group grid h-20 w-20 cursor-pointer place-items-center rounded-full border border-white/20 bg-white/10 backdrop-blur-xl transition-transform duration-300 hover:scale-105">
-                    <svg viewBox="0 0 24 24" className="ml-1 h-8 w-8 text-solar-300" fill="currentColor" aria-hidden="true">
-                      <path d="M8 5v14l11-7z" />
+                  <span className="grid h-20 w-20 place-items-center rounded-full border border-white/20 bg-white/10 backdrop-blur-xl transition-transform duration-500 ease-premium group-hover:scale-105">
+                    <svg viewBox="0 0 24 24" className="h-7 w-7 text-solar-300" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                      <path d="M5 12h14M13 6l6 6-6 6" />
                     </svg>
-                  </div>
+                  </span>
                 </div>
                 <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-solar-300">Vidéo drone</p>
-                    <p className="mt-1 text-sm text-ocean-100">Chantiers photovoltaïques HelioSolar</p>
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-solar-300">Nos chantiers</p>
+                    <p className="mt-1 text-sm text-ocean-100">Explorer les réalisations photovoltaïques</p>
                   </div>
+                  <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+                    Voir
+                  </span>
                 </div>
-              </div>
+              </Link>
             </Reveal>
           </div>
         </div>
