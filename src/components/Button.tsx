@@ -4,14 +4,15 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 type Variant = "primary" | "secondary" | "ghost";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solar-500 disabled:pointer-events-none disabled:opacity-50";
+  "group/btn inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition-all duration-300 ease-premium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solar-500 disabled:pointer-events-none disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
   primary:
-    "bg-solar-500 text-ocean-950 shadow-[0_10px_35px_rgba(245,183,0,0.24)] hover:-translate-y-0.5 hover:bg-solar-300 hover:shadow-[0_16px_45px_rgba(245,183,0,0.32)]",
+    "btn-sheen bg-solar-500 text-ocean-950 shadow-solar-btn hover:-translate-y-0.5 hover:bg-solar-400 hover:shadow-[0_18px_46px_rgba(255,184,0,0.34)] active:translate-y-0",
   secondary:
-    "border border-ocean-900/15 bg-white/70 text-ocean-950 backdrop-blur hover:-translate-y-0.5 hover:border-solar-500 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-solar-300",
-  ghost: "text-ocean-700 hover:text-solar-600 dark:text-ocean-100 dark:hover:text-solar-300",
+    "border border-ocean-900/15 bg-white/70 text-ocean-950 backdrop-blur hover:-translate-y-0.5 hover:border-solar-500 hover:bg-white dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:border-solar-300 dark:hover:bg-white/10",
+  ghost:
+    "text-ocean-700 hover:text-solar-600 dark:text-ocean-100 dark:hover:text-solar-300",
 };
 
 interface ButtonAsLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {

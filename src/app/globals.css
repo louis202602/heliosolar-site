@@ -3,23 +3,69 @@
 @tailwind utilities;
 
 @layer base {
-  :root { color-scheme: light; }
+  :root {
+    color-scheme: light;
+    --ring: 3px;
+  }
   html.dark { color-scheme: dark; }
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
   body {
     @apply bg-paper font-body text-ink antialiased dark:bg-ocean-950 dark:text-white;
-    background-image: radial-gradient(circle at 50% -20%, rgba(46,111,149,.08), transparent 38%);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+    background-image: radial-gradient(circle at 50% -20%, rgba(46, 111, 149, 0.08), transparent 38%);
   }
-  h1, h2, h3, h4 { @apply font-display; }
-  :focus-visible { @apply outline outline-2 outline-offset-2 outline-solar-500; }
+  h1, h2, h3, h4 {
+    @apply font-display;
+    letter-spacing: -0.025em;
+  }
+  h1 { text-wrap: balance; }
+  p { text-wrap: pretty; }
   ::selection { @apply bg-solar-300/60 text-ocean-950; }
+  :focus-visible {
+    outline: var(--ring) solid #ffb800;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.24em] text-solar-600 dark:text-solar-300;
+  }
+  .card-premium {
+    @apply rounded-4xl border border-ocean-900/10 bg-white shadow-card transition-all duration-500 ease-premium dark:border-white/10 dark:bg-white/[0.035];
+  }
+  .btn-sheen {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .btn-sheen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, 0.45) 50%, transparent 80%);
+    transform: translateX(-120%);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-sheen:hover::after {
+    transform: translateX(120%);
+  }
 }
 
 @layer utilities {
   .solar-grid {
     background-image:
-      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
     background-size: 56px 56px;
     mask-image: linear-gradient(to bottom, black, transparent 90%);
   }
@@ -27,35 +73,52 @@
     @apply border border-white/10 bg-white/[0.055] backdrop-blur-xl;
   }
   .text-gradient {
-    background: linear-gradient(110deg, #ffffff 10%, #c8e6f6 52%, #ffd75e 96%);
+    background: linear-gradient(110deg, #ffffff 8%, #c8e6f6 48%, #ffd233 96%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  .orbital-ring { animation: orbit 18s linear infinite; }
-  .orbital-ring-reverse { animation: orbit-reverse 24s linear infinite; }
+  .text-gradient-solar {
+    background: linear-gradient(100deg, #ffb800 0%, #ff9a00 60%, #e59a00 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .premium-shadow {
+    box-shadow: 0 30px 90px rgba(6, 23, 37, 0.16);
+  }
   .float-slow { animation: float 7s ease-in-out infinite; }
   .pulse-soft { animation: pulse-soft 4s ease-in-out infinite; }
-  @media (prefers-reduced-motion: reduce) {
-    .orbital-ring, .orbital-ring-reverse, .float-slow, .pulse-soft { animation: none; }
-  }
 }
 
-@keyframes orbit { to { transform: rotate(360deg); } }
-@keyframes orbit-reverse { to { transform: rotate(-360deg); } }
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-@keyframes pulse-soft { 0%,100% { opacity:.72; transform:scale(1); } 50% { opacity:1; transform:scale(1.04); } }
-
-@layer utilities {
-  .premium-shadow {
-    box-shadow: 0 30px 90px rgba(6, 23, 37, .16);
-  }
+/* Scroll reveal — progressive appearance driven by IntersectionObserver.
+   Gated behind `html.js`: without JavaScript (or before hydration) content
+   stays fully visible, so no content is ever hidden and the LCP is never
+   blocked by a not-yet-run observer. */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+html.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  main > section { animation: reveal-section .65s ease both; }
+/* Immediate, JS-independent hero entrance (does not block LCP paint) */
+.hero-rise {
+  animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-@keyframes reveal-section { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes pulse-soft { 0%, 100% { opacity: 0.72; transform: scale(1); } 50% { opacity: 1; transform: scale(1.04); } }
 
 .skip-link {
   position: fixed;
@@ -71,21 +134,19 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
   transition: transform 160ms ease;
 }
-
 .skip-link:focus {
   transform: translateY(0);
 }
 
-:focus-visible {
-  outline: 3px solid #f5bd00;
-  outline-offset: 3px;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
+  html { scroll-behavior: auto; }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .float-slow, .pulse-soft { animation: none; }
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

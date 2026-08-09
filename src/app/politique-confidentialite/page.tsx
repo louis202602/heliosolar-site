@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 export default function PolitiqueConfidentialitePage() {
   return (
     <Section eyebrow="Page provisoire" title="Politique de confidentialité">
-      <div className="max-w-2xl space-y-4 text-sm leading-relaxed text-steel-700 dark:text-steel-100">
-        <p className="rounded-md bg-copper-100/60 px-4 py-3 text-copper-700 dark:bg-copper-700/20 dark:text-copper-300">
+      <div className="max-w-2xl space-y-4 text-sm leading-relaxed text-slatebrand-500 dark:text-ocean-100">
+        <p className="rounded-2xl border border-solar-500/25 bg-solar-100/55 px-4 py-3 text-ocean-800 dark:bg-solar-500/10 dark:text-solar-100">
           Cette page est incomplète. Aucune politique de confidentialité réelle (base légale, durées de conservation,
           sous-traitants, droits RGPD, contact DPO, etc.) n&apos;a été rédigée : elle doit être établie avec un juriste
           avant toute mise en ligne publique, notamment du fait du formulaire de contact et de demande d&apos;étude.

@@ -20,7 +20,7 @@ export function ThemeToggle() {
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={isDark ? "Passer en mode clair" : "Passer en mode sombre"}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-mist text-ink transition-colors hover:border-copper-500 dark:border-steel-500 dark:text-steel-50 dark:hover:border-copper-300"
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-ocean-900/10 text-ocean-950 transition-colors hover:border-solar-500 hover:text-solar-600 dark:border-white/15 dark:text-white dark:hover:border-solar-300 dark:hover:text-solar-300"
     >
       {isDark ? (
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
