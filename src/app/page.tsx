@@ -195,11 +195,15 @@ export default function AccueilPage() {
         className="relative isolate overflow-hidden text-white"
         style={{
           background:
-            "radial-gradient(125% 115% at 50% -12%, #21548F 0%, #143F7A 30%, #0C2C5C 62%, #08213F 100%)",
+            "radial-gradient(125% 115% at 50% -12%, #05688F 0%, #065274 34%, #05496A 60%, #043752 100%)",
         }}
       >
         <div className="solar-grid pointer-events-none absolute inset-0 opacity-50" />
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[560px] w-[940px] -translate-x-1/2 rounded-full bg-[#2f6ad0]/25 blur-[150px]" />
+        {/* Reflet lumineux contrôlé (bleu Neptune de la référence) */}
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[560px] w-[940px] -translate-x-1/2 rounded-full bg-[#0B85AB]/22 blur-[150px]" />
+        {/* Highlight ponctuel très limité */}
+        <div className="pointer-events-none absolute right-[18%] top-8 h-40 w-40 rounded-full bg-[#48ACC9]/12 blur-[130px]" />
+        {/* Accent doré subtil — identité HelioSolar */}
         <div className="pointer-events-none absolute -right-20 top-24 h-64 w-64 rounded-full bg-solar-500/10 blur-[100px]" />
 
         <div className="relative container-px grid min-h-[760px] items-center gap-14 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
