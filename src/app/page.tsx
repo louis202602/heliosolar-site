@@ -191,9 +191,15 @@ export default function AccueilPage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative isolate overflow-hidden bg-ocean-950 text-white">
-        <div className="solar-grid pointer-events-none absolute inset-0 opacity-70" />
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[560px] w-[940px] -translate-x-1/2 rounded-full bg-ocean-500/20 blur-[140px]" />
+      <section
+        className="relative isolate overflow-hidden text-white"
+        style={{
+          background:
+            "radial-gradient(125% 115% at 50% -12%, #21548F 0%, #143F7A 30%, #0C2C5C 62%, #08213F 100%)",
+        }}
+      >
+        <div className="solar-grid pointer-events-none absolute inset-0 opacity-50" />
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[560px] w-[940px] -translate-x-1/2 rounded-full bg-[#2f6ad0]/25 blur-[150px]" />
         <div className="pointer-events-none absolute -right-20 top-24 h-64 w-64 rounded-full bg-solar-500/10 blur-[100px]" />
 
         <div className="relative container-px grid min-h-[760px] items-center gap-14 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
@@ -205,12 +211,14 @@ export default function AccueilPage() {
               </span>
             </div>
 
-            <h1 className="max-w-3xl text-5xl font-extrabold leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
-              Votre toiture devient
-              <span className="text-gradient block">une source de performance.</span>
+            <h1 className="max-w-[18ch] text-[2.7rem] font-light leading-[1.08] tracking-[-0.015em] text-white/95 sm:text-6xl sm:leading-[1.04] lg:text-[4.15rem]">
+              Votre toiture devient{" "}
+              <span className="block bg-gradient-to-r from-white via-[#bcd8ff] to-[#ffd98a] bg-clip-text pb-1 font-semibold tracking-[-0.02em] text-transparent">
+                une source de performance
+              </span>
             </h1>
 
-            <p className="mt-7 max-w-2xl text-base leading-8 text-ocean-100 sm:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-[1.75] text-ocean-100/90 sm:text-lg sm:leading-[1.7]">
               HelioSolar conçoit, installe et supervise des centrales photovoltaïques sur mesure pour les particuliers,
               professionnels, industriels et exploitations agricoles. Une ingénierie exigeante, des données claires, une
               performance suivie dans le temps.
