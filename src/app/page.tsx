@@ -195,14 +195,14 @@ export default function AccueilPage() {
         className="relative isolate overflow-hidden text-white"
         style={{
           background:
-            "radial-gradient(125% 115% at 50% -12%, #05688F 0%, #065274 34%, #05496A 60%, #043752 100%)",
+            "radial-gradient(125% 115% at 50% -12%, #05668D 0%, #055173 40%, #054A67 66%, #053751 100%)",
         }}
       >
         <div className="solar-grid pointer-events-none absolute inset-0 opacity-50" />
         {/* Reflet lumineux contrôlé (bleu Neptune de la référence) */}
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[560px] w-[940px] -translate-x-1/2 rounded-full bg-[#0B85AB]/22 blur-[150px]" />
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[560px] w-[940px] -translate-x-1/2 rounded-full bg-[#087EA5]/22 blur-[150px]" />
         {/* Highlight ponctuel très limité */}
-        <div className="pointer-events-none absolute right-[18%] top-8 h-40 w-40 rounded-full bg-[#48ACC9]/12 blur-[130px]" />
+        <div className="pointer-events-none absolute right-[18%] top-8 h-40 w-40 rounded-full bg-[#2FA1C1]/12 blur-[130px]" />
         {/* Accent doré subtil — identité HelioSolar */}
         <div className="pointer-events-none absolute -right-20 top-24 h-64 w-64 rounded-full bg-solar-500/10 blur-[100px]" />
 
