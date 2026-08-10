@@ -205,11 +205,9 @@ export default function AccueilPage() {
               </span>
             </div>
 
-            <h1 className="max-w-[18ch] text-[2.7rem] font-light leading-[1.08] tracking-[-0.015em] text-white/95 sm:text-6xl sm:leading-[1.04] lg:text-[4.15rem]">
-              Votre toiture devient{" "}
-              <span className="block bg-gradient-to-r from-white via-[#bcd8ff] to-[#ffd98a] bg-clip-text pb-1 font-semibold tracking-[-0.02em] text-transparent">
-                une source de performance
-              </span>
+            <h1 className="max-w-3xl text-5xl font-extrabold leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
+              Votre toiture devient
+              <span className="text-gradient block">une source de performance</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-base leading-[1.75] text-ocean-100/90 sm:text-lg sm:leading-[1.7]">
