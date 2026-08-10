@@ -191,19 +191,9 @@ export default function AccueilPage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section
-        className="relative isolate overflow-hidden text-white"
-        style={{
-          background:
-            "radial-gradient(125% 115% at 50% -12%, #05668D 0%, #055173 40%, #054A67 66%, #053751 100%)",
-        }}
-      >
-        <div className="solar-grid pointer-events-none absolute inset-0 opacity-50" />
-        {/* Reflet lumineux contrôlé (bleu Neptune de la référence) */}
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[560px] w-[940px] -translate-x-1/2 rounded-full bg-[#087EA5]/22 blur-[150px]" />
-        {/* Highlight ponctuel très limité */}
-        <div className="pointer-events-none absolute right-[18%] top-8 h-40 w-40 rounded-full bg-[#2FA1C1]/12 blur-[130px]" />
-        {/* Accent doré subtil — identité HelioSolar */}
+      <section className="relative isolate overflow-hidden bg-ocean-950 text-white">
+        <div className="solar-grid pointer-events-none absolute inset-0 opacity-70" />
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[560px] w-[940px] -translate-x-1/2 rounded-full bg-ocean-500/20 blur-[140px]" />
         <div className="pointer-events-none absolute -right-20 top-24 h-64 w-64 rounded-full bg-solar-500/10 blur-[100px]" />
 
         <div className="relative container-px grid min-h-[760px] items-center gap-14 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
