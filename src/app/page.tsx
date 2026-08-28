@@ -10,9 +10,9 @@ const sectors = [
 ];
 
 const references = [
-  { image: "/media/realisation-green.webp", location: "Projet agricole", type: "Hangar photovoltaïque", power: "Grande toiture", detail: "Couverture photovoltaïque intégrée à un bâtiment agricole, documentée par prise de vue drone." },
-  { image: "/media/realisation-industrial.webp", location: "Site professionnel", type: "Toiture grande surface", power: "Forte puissance", detail: "Implantation dense sur bâtiment d’activité avec exploitation maximale de la surface disponible." },
-  { image: "/media/realisation-orchard.webp", location: "Exploitation agricole", type: "Bâtiment photovoltaïque", power: "Sur mesure", detail: "Installation en environnement agricole avec lecture claire de l’intégration au site." },
+  { image: "/media/hero-agri.svg", location: "Projet agricole", type: "Hangar photovoltaïque", power: "Grande toiture", detail: "Couverture photovoltaïque intégrée à un bâtiment agricole, documentée par prise de vue drone." },
+  { image: "/media/realisation-industrial.svg", location: "Site professionnel", type: "Toiture grande surface", power: "Forte puissance", detail: "Implantation dense sur bâtiment d’activité avec exploitation maximale de la surface disponible." },
+  { image: "/media/hero-agri.svg", location: "Exploitation agricole", type: "Bâtiment photovoltaïque", power: "Sur mesure", detail: "Installation en environnement agricole avec lecture claire de l’intégration au site." },
 ];
 
 const method = [
@@ -38,16 +38,9 @@ export default function AccueilPage() {
               <span className="h-2 w-2 rounded-full bg-solar-300 shadow-[0_0_14px_rgba(255,215,94,0.9)]" />
               <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-ocean-100">Ingénierie photovoltaïque • Marseille & région Sud</span>
             </div>
-            <h1 className="max-w-3xl text-5xl font-extrabold leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
-              Votre toiture devient <span className="text-gradient block">une source de performance.</span>
-            </h1>
-            <p className="mt-7 max-w-2xl text-base leading-8 text-ocean-100 sm:text-lg">
-              HelioSolar conçoit, installe et supervise des centrales photovoltaïques sur mesure pour particuliers, professionnels, industriels et exploitations agricoles.
-            </p>
-            <div className="mt-9 flex flex-wrap gap-4">
-              <Button href="/demande-etude">Demander mon étude gratuite <ArrowIcon /></Button>
-              <Button href="/realisations" variant="secondary">Voir les réalisations</Button>
-            </div>
+            <h1 className="max-w-3xl text-5xl font-extrabold leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-7xl">Votre toiture devient <span className="text-gradient block">une source de performance.</span></h1>
+            <p className="mt-7 max-w-2xl text-base leading-8 text-ocean-100 sm:text-lg">HelioSolar conçoit, installe et supervise des centrales photovoltaïques sur mesure pour particuliers, professionnels, industriels et exploitations agricoles.</p>
+            <div className="mt-9 flex flex-wrap gap-4"><Button href="/demande-etude">Demander mon étude gratuite <ArrowIcon /></Button><Button href="/realisations" variant="secondary">Voir les réalisations</Button></div>
             <div className="mt-12 grid max-w-2xl grid-cols-3 gap-5 border-t border-white/10 pt-7">
               <div><p className="text-2xl font-bold">QualiPV 500</p><p className="mt-1 text-xs text-ocean-300">Qualification photovoltaïque</p></div>
               <div><p className="text-2xl font-bold">500 kWc</p><p className="mt-1 text-xs text-ocean-300">Projets étudiés</p></div>
@@ -55,10 +48,8 @@ export default function AccueilPage() {
             </div>
           </div>
           <div className="hero-rise [animation-delay:120ms]">
-            <div className="relative mx-auto overflow-hidden rounded-[30px] border border-white/10 bg-ocean-900 shadow-panel">
-              <video className="aspect-[4/3] h-full w-full object-cover" autoPlay muted loop playsInline preload="metadata" poster="/media/hero-agri.webp" aria-label="Réalisation photovoltaïque HelioSolar filmée par drone">
-                <source src="/media/hero-drone.mp4" type="video/mp4" />
-              </video>
+            <div className="relative mx-auto aspect-[4/3] overflow-hidden rounded-[30px] border border-white/10 bg-ocean-900 shadow-panel">
+              <Image src="/media/hero-agri.svg" alt="Grande réalisation photovoltaïque agricole HelioSolar vue par drone" fill unoptimized priority className="object-cover" sizes="(min-width: 1024px) 48vw, 100vw" />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ocean-950/60 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 rounded-full border border-white/15 bg-ocean-950/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] backdrop-blur-lg">Réalisation réelle • vue drone</div>
             </div>
@@ -66,67 +57,15 @@ export default function AccueilPage() {
         </div>
       </section>
 
-      <section className="border-b border-ocean-900/10 bg-white py-8 dark:border-white/10 dark:bg-ocean-950">
-        <div className="container-px grid gap-5 text-sm font-semibold sm:grid-cols-3">
-          <p>Études techniques personnalisées</p><p>Installations professionnelles</p><p>Suivi énergétique structuré</p>
-        </div>
-      </section>
+      <section className="border-b border-ocean-900/10 bg-white py-8 dark:border-white/10 dark:bg-ocean-950"><div className="container-px grid gap-5 text-sm font-semibold sm:grid-cols-3"><p>Études techniques personnalisées</p><p>Installations professionnelles</p><p>Suivi énergétique structuré</p></div></section>
 
-      <section className="py-24 sm:py-28">
-        <div className="container-px">
-          <Reveal className="max-w-2xl"><p className="eyebrow">Solutions</p><h2 className="mt-4 text-4xl font-bold tracking-[-0.035em] text-ocean-950 dark:text-white sm:text-5xl">Une expertise adaptée à chaque échelle.</h2></Reveal>
-          <div className="mt-14 grid gap-5 lg:grid-cols-3">
-            {sectors.map((sector, i) => (
-              <Reveal key={sector.title} delay={i * 80}>
-                <Link href={sector.href} className="card-premium group flex min-h-[300px] flex-col p-8 hover:-translate-y-1.5 hover:shadow-card-hover">
-                  <span className="w-fit rounded-full bg-ocean-50 px-3 py-1 text-xs font-bold text-ocean-700 dark:bg-white/5 dark:text-ocean-100">{sector.metric}</span>
-                  <h3 className="mt-10 text-2xl font-bold text-ocean-950 dark:text-white">{sector.title}</h3>
-                  <p className="mt-4 leading-7 text-slatebrand-500 dark:text-ocean-100">{sector.text}</p>
-                  <span className="mt-auto flex items-center gap-2 pt-8 text-sm font-bold text-ocean-700 group-hover:text-solar-600 dark:text-ocean-100">Explorer <ArrowIcon /></span>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <section className="py-24 sm:py-28"><div className="container-px"><Reveal className="max-w-2xl"><p className="eyebrow">Solutions</p><h2 className="mt-4 text-4xl font-bold tracking-[-0.035em] text-ocean-950 dark:text-white sm:text-5xl">Une expertise adaptée à chaque échelle.</h2></Reveal><div className="mt-14 grid gap-5 lg:grid-cols-3">{sectors.map((sector, i) => <Reveal key={sector.title} delay={i * 80}><Link href={sector.href} className="card-premium group flex min-h-[300px] flex-col p-8 hover:-translate-y-1.5 hover:shadow-card-hover"><span className="w-fit rounded-full bg-ocean-50 px-3 py-1 text-xs font-bold text-ocean-700 dark:bg-white/5 dark:text-ocean-100">{sector.metric}</span><h3 className="mt-10 text-2xl font-bold text-ocean-950 dark:text-white">{sector.title}</h3><p className="mt-4 leading-7 text-slatebrand-500 dark:text-ocean-100">{sector.text}</p><span className="mt-auto flex items-center gap-2 pt-8 text-sm font-bold text-ocean-700 group-hover:text-solar-600 dark:text-ocean-100">Explorer <ArrowIcon /></span></Link></Reveal>)}</div></div></section>
 
-      <section className="bg-ocean-950 py-24 text-white sm:py-28">
-        <div className="container-px grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-center">
-          <Reveal><p className="eyebrow text-solar-300">Immersion chantier</p><h2 className="mt-4 text-4xl font-bold tracking-[-0.035em] sm:text-5xl">Des réalisations visibles, pas seulement promises.</h2><p className="mt-6 max-w-md leading-8 text-ocean-100">Vues drone, implantation, raccordement et résultat final : nos médias montrent concrètement le niveau de chantier.</p></Reveal>
-          <Reveal delay={100}>
-            <Link href="/realisations" className="group relative block aspect-video overflow-hidden rounded-[30px] border border-white/10 shadow-panel">
-              <Image src="/media/realisation-industrial.webp" alt="Grande toiture photovoltaïque sur bâtiment professionnel" fill className="object-cover transition-transform duration-700 group-hover:scale-[1.03]" sizes="(min-width: 1024px) 60vw, 100vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ocean-950/75 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6"><p className="text-xs font-bold uppercase tracking-[0.2em] text-solar-300">Réalisations réelles</p><p className="mt-2 text-xl font-bold">Découvrir nos chantiers</p></div>
-            </Link>
-          </Reveal>
-        </div>
-      </section>
+      <section className="bg-ocean-950 py-24 text-white sm:py-28"><div className="container-px grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-center"><Reveal><p className="eyebrow text-solar-300">Immersion chantier</p><h2 className="mt-4 text-4xl font-bold tracking-[-0.035em] sm:text-5xl">Des réalisations visibles, pas seulement promises.</h2><p className="mt-6 max-w-md leading-8 text-ocean-100">Vues drone, implantation, raccordement et résultat final : nos médias montrent concrètement le niveau de chantier.</p></Reveal><Reveal delay={100}><Link href="/realisations" className="group relative block aspect-video overflow-hidden rounded-[30px] border border-white/10 shadow-panel"><Image src="/media/realisation-industrial.svg" alt="Grande toiture photovoltaïque sur bâtiment professionnel" fill unoptimized className="object-cover transition-transform duration-700 group-hover:scale-[1.03]" sizes="(min-width: 1024px) 60vw, 100vw" /><div className="absolute inset-0 bg-gradient-to-t from-ocean-950/75 via-transparent to-transparent" /><div className="absolute bottom-6 left-6"><p className="text-xs font-bold uppercase tracking-[0.2em] text-solar-300">Réalisations réelles</p><p className="mt-2 text-xl font-bold">Découvrir nos chantiers</p></div></Link></Reveal></div></section>
 
-      <section className="py-24 sm:py-28">
-        <div className="container-px">
-          <Reveal><p className="eyebrow">Références</p><h2 className="mt-4 text-4xl font-bold tracking-[-0.035em] text-ocean-950 dark:text-white sm:text-5xl">Le terrain comme meilleure preuve.</h2></Reveal>
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
-            {references.map((project, i) => (
-              <Reveal key={project.image} delay={i * 80}>
-                <article className="card-premium h-full overflow-hidden">
-                  <div className="relative aspect-[16/10]"><Image src={project.image} alt={`${project.type} — ${project.location}`} fill className="object-cover" sizes="(min-width: 1024px) 33vw, 100vw" /><div className="absolute inset-0 bg-gradient-to-t from-ocean-950/70 via-transparent to-transparent" /><p className="absolute bottom-5 left-5 text-2xl font-black text-white">{project.power}</p></div>
-                  <div className="p-6"><p className="text-xs font-bold uppercase tracking-[0.18em] text-solar-600 dark:text-solar-300">{project.location}</p><h3 className="mt-3 text-xl font-bold text-ocean-950 dark:text-white">{project.type}</h3><p className="mt-4 leading-7 text-slatebrand-500 dark:text-ocean-100">{project.detail}</p></div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <section className="py-24 sm:py-28"><div className="container-px"><Reveal><p className="eyebrow">Références</p><h2 className="mt-4 text-4xl font-bold tracking-[-0.035em] text-ocean-950 dark:text-white sm:text-5xl">Le terrain comme meilleure preuve.</h2></Reveal><div className="mt-12 grid gap-5 lg:grid-cols-3">{references.map((project, i) => <Reveal key={`${project.location}-${i}`} delay={i * 80}><article className="card-premium h-full overflow-hidden"><div className="relative aspect-[16/10]"><Image src={project.image} alt={`${project.type} — ${project.location}`} fill unoptimized className="object-cover" sizes="(min-width: 1024px) 33vw, 100vw" /><div className="absolute inset-0 bg-gradient-to-t from-ocean-950/70 via-transparent to-transparent" /><p className="absolute bottom-5 left-5 text-2xl font-black text-white">{project.power}</p></div><div className="p-6"><p className="text-xs font-bold uppercase tracking-[0.18em] text-solar-600 dark:text-solar-300">{project.location}</p><h3 className="mt-3 text-xl font-bold text-ocean-950 dark:text-white">{project.type}</h3><p className="mt-4 leading-7 text-slatebrand-500 dark:text-ocean-100">{project.detail}</p></div></article></Reveal>)}</div></div></section>
 
-      <section className="bg-ocean-50 py-24 dark:bg-white/[0.02] sm:py-28">
-        <div className="container-px grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <Reveal><p className="eyebrow">Notre méthode</p><h2 className="mt-4 text-4xl font-bold tracking-[-0.035em] text-ocean-950 dark:text-white sm:text-5xl">La maîtrise du projet, de la donnée au terrain.</h2></Reveal>
-          <div className="divide-y divide-ocean-900/10 border-y border-ocean-900/10 dark:divide-white/10 dark:border-white/10">
-            {method.map(([number,title,text],i)=><Reveal key={number} delay={i*60}><div className="grid gap-3 py-7 sm:grid-cols-[60px_160px_1fr]"><span className="text-xs font-bold tracking-[0.2em] text-solar-600 dark:text-solar-300">{number}</span><h3 className="text-xl font-bold text-ocean-950 dark:text-white">{title}</h3><p className="leading-7 text-slatebrand-500 dark:text-ocean-100">{text}</p></div></Reveal>)}
-          </div>
-        </div>
-      </section>
+      <section className="bg-ocean-50 py-24 dark:bg-white/[0.02] sm:py-28"><div className="container-px grid gap-12 lg:grid-cols-[0.8fr_1.2fr]"><Reveal><p className="eyebrow">Notre méthode</p><h2 className="mt-4 text-4xl font-bold tracking-[-0.035em] text-ocean-950 dark:text-white sm:text-5xl">La maîtrise du projet, de la donnée au terrain.</h2></Reveal><div className="divide-y divide-ocean-900/10 border-y border-ocean-900/10 dark:divide-white/10 dark:border-white/10">{method.map(([number,title,text],i)=><Reveal key={number} delay={i*60}><div className="grid gap-3 py-7 sm:grid-cols-[60px_160px_1fr]"><span className="text-xs font-bold tracking-[0.2em] text-solar-600 dark:text-solar-300">{number}</span><h3 className="text-xl font-bold text-ocean-950 dark:text-white">{title}</h3><p className="leading-7 text-slatebrand-500 dark:text-ocean-100">{text}</p></div></Reveal>)}</div></div></section>
 
       <section className="py-24 sm:py-28"><div className="container-px"><Reveal><div className="relative overflow-hidden rounded-5xl bg-gradient-to-br from-ocean-700 to-ocean-950 px-8 py-14 text-white shadow-panel sm:px-12"><p className="eyebrow text-solar-300">Votre projet</p><h2 className="mt-4 max-w-3xl text-3xl font-bold tracking-[-0.03em] sm:text-4xl">Transformons votre potentiel solaire en projet concret.</h2><p className="mt-4 max-w-2xl leading-7 text-ocean-100">Une première étude structurée pour estimer faisabilité, puissance pertinente et prochaines étapes.</p><div className="mt-8"><Button href="/demande-etude">Lancer mon étude <ArrowIcon /></Button></div></div></Reveal></div></section>
     </>
