@@ -25,9 +25,10 @@ export async function GET(request: Request) {
 
   const svg = await readFile(path.join(process.cwd(), "public", "media", filename), "utf8");
   const match = svg.match(/data:image\/jpeg;base64,([^\"]+)/);
-  if (!match) return new Response("Image unavailable", { status: 404 });
+  const payload = match?.[1];
+  if (!payload) return new Response("Image unavailable", { status: 404 });
 
-  return new Response(base64ToArrayBuffer(match[1]), {
+  return new Response(base64ToArrayBuffer(payload), {
     headers: {
       "Content-Type": "image/jpeg",
       "Cache-Control": "public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800",
