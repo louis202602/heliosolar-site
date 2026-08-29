@@ -1,4 +1,4 @@
-const CACHE_NAME = "heliosolar-v1";
+const CACHE_NAME = "heliosolar-v2";
 const OFFLINE_URL = "/hors-ligne";
 const PRECACHE_URLS = [
   "/",
@@ -8,6 +8,7 @@ const PRECACHE_URLS = [
   "/brand/icon-192.png",
   "/brand/icon-512.png",
   "/brand/heliosolar-logo-header.png",
+  "/media/hero-agri.jpg",
 ];
 
 self.addEventListener("install", (event) => {
@@ -40,6 +41,21 @@ self.addEventListener("fetch", (event) => {
           return response;
         })
         .catch(async () => (await caches.match(request)) || caches.match(OFFLINE_URL)),
+    );
+    return;
+  }
+
+  if (url.pathname.startsWith("/media/")) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request)),
     );
     return;
   }
