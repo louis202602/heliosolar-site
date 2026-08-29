@@ -9,13 +9,11 @@ const MEDIA: Record<string, string> = {
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-function base64ToArrayBuffer(value: string): ArrayBuffer {
-  const binary = atob(value);
-  const bytes = new Uint8Array(binary.length);
-  for (let i = 0; i < binary.length; i += 1) {
-    bytes[i] = binary.charCodeAt(i);
-  }
-  return bytes.buffer;
+function decodeBase64(value: string): ArrayBuffer {
+  const buffer = Buffer.from(value.replace(/\s+/g, ""), "base64");
+  const bytes = new Uint8Array(buffer.byteLength);
+  bytes.set(buffer);
+  return bytes.buffer as ArrayBuffer;
 }
 
 export async function GET(request: Request) {
@@ -28,7 +26,7 @@ export async function GET(request: Request) {
   const payload = match?.[1];
   if (!payload) return new Response("Image unavailable", { status: 404 });
 
-  return new Response(base64ToArrayBuffer(payload), {
+  return new Response(decodeBase64(payload), {
     headers: {
       "Content-Type": "image/jpeg",
       "Cache-Control": "public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800",
