@@ -4,8 +4,14 @@ import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Professionnels & industriels — HelioSolar",
-  description: "Solutions photovoltaïques pour bâtiments tertiaires, industriels et agricoles.",
+  title: "Photovoltaïque professionnel, industriel & agricole",
+  description: "Solutions photovoltaïques HelioSolar pour bâtiments tertiaires, industriels et agricoles à Marseille et en région Sud.",
+  alternates: { canonical: "/professionnels-industriels" },
+  openGraph: {
+    url: "/professionnels-industriels",
+    title: "Photovoltaïque professionnel, industriel & agricole | HelioSolar",
+    description: "Étude et installation de centrales photovoltaïques pour bâtiments professionnels, industriels et agricoles.",
+  },
 };
 
 export default function Page() {
@@ -29,17 +35,29 @@ export default function Page() {
         <div className="container-px">
           <Reveal>
             <div className="grid gap-5 lg:grid-cols-[1.25fr_0.75fr]">
-              <div className="relative min-h-[420px] overflow-hidden rounded-5xl bg-ocean-900 shadow-panel">
-                <Photo src="/media/project-industrial.jpg" alt="Grande toiture photovoltaïque professionnelle" className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-ocean-950/55 via-transparent to-transparent" />
-                <div className="absolute bottom-7 left-7 text-white">
+              <div className="relative min-h-[360px] overflow-hidden rounded-5xl bg-ocean-900 shadow-panel sm:min-h-[420px]">
+                <Photo
+                  src="/media/project-industrial.jpg"
+                  alt="Grande toiture photovoltaïque professionnelle"
+                  sizes="(max-width: 1023px) 100vw, 62vw"
+                  quality={88}
+                  className="object-cover object-center"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ocean-950/45 via-transparent to-transparent" />
+                <div className="absolute bottom-7 left-7 right-7 text-white">
                   <p className="text-xs font-bold uppercase tracking-[0.2em] text-solar-300">Réalisations réelles</p>
                   <p className="mt-2 max-w-xl text-2xl font-bold">Des grandes surfaces exploitées avec une implantation précise.</p>
                 </div>
               </div>
-              <div className="relative min-h-[420px] overflow-hidden rounded-5xl bg-ocean-900">
-                <Photo src="/media/project-roof.jpg" alt="Bâtiment photovoltaïque vu par drone" className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-ocean-950/45 via-transparent to-transparent" />
+              <div className="relative min-h-[340px] overflow-hidden rounded-5xl bg-ocean-900 sm:min-h-[420px]">
+                <Photo
+                  src="/media/project-roof.jpg"
+                  alt="Bâtiment photovoltaïque vu par drone"
+                  sizes="(max-width: 1023px) 100vw, 38vw"
+                  quality={88}
+                  className="object-cover object-center"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ocean-950/40 via-transparent to-transparent" />
                 <p className="absolute bottom-7 left-7 right-7 text-xl font-bold text-white">Photovoltaïque professionnel • vue drone</p>
               </div>
             </div>
