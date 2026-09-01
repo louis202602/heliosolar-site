@@ -57,7 +57,7 @@ const method = [
 
 function Arrow() {
   return (
-    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
       <path d="M5 12h14M13 6l6 6-6 6" />
     </svg>
   );
@@ -86,9 +86,16 @@ export default function AccueilPage() {
               <div><p className="text-2xl font-bold">360°</p><p className="text-xs text-ocean-300">Étude, pose et suivi</p></div>
             </div>
           </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[30px] border border-white/10 bg-ocean-900 shadow-panel">
-            <Photo src="/media/hero-agri.jpg" alt="Réalisation photovoltaïque agricole HelioSolar vue par drone" eager className="absolute inset-0 h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-ocean-950/40 via-transparent to-transparent" />
+          <div className="relative aspect-[16/10] overflow-hidden rounded-[30px] border border-white/10 bg-ocean-900 shadow-panel sm:aspect-[4/3]">
+            <Photo
+              src="/media/hero-agri.jpg"
+              alt="Réalisation photovoltaïque agricole HelioSolar vue par drone"
+              eager
+              sizes="(max-width: 1023px) 100vw, 52vw"
+              quality={90}
+              className="object-cover object-center"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ocean-950/30 via-transparent to-transparent" />
             <div className="absolute bottom-5 left-5 rounded-full bg-ocean-950/75 px-4 py-2 text-xs font-bold uppercase tracking-[.16em]">Réalisation réelle • vue drone</div>
           </div>
         </div>
@@ -122,9 +129,15 @@ export default function AccueilPage() {
         <div className="container-px grid gap-10 lg:grid-cols-[.72fr_1.28fr] lg:items-center">
           <Reveal><p className="eyebrow text-solar-300">Immersion chantier</p><h2 className="mt-4 text-4xl font-bold sm:text-5xl">Des réalisations visibles, pas seulement promises.</h2><p className="mt-6 leading-8 text-ocean-100">Vues drone, implantation et résultat final : nos médias montrent concrètement le niveau de chantier.</p></Reveal>
           <Reveal>
-            <Link href="/realisations" className="relative block aspect-video overflow-hidden rounded-[30px] border border-white/10">
-              <Photo src="/media/project-industrial.jpg" alt="Grande toiture photovoltaïque professionnelle" className="absolute inset-0 h-full w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-ocean-950/65 via-transparent to-transparent" />
+            <Link href="/realisations" className="relative block aspect-video overflow-hidden rounded-[30px] border border-white/10 bg-ocean-900">
+              <Photo
+                src="/media/project-industrial.jpg"
+                alt="Grande toiture photovoltaïque professionnelle"
+                sizes="(max-width: 1023px) 100vw, 60vw"
+                quality={88}
+                className="object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ocean-950/50 via-transparent to-transparent" />
               <p className="absolute bottom-6 left-6 text-xl font-bold">Découvrir nos chantiers</p>
             </Link>
           </Reveal>
@@ -138,9 +151,15 @@ export default function AccueilPage() {
             {refs.map((p, i) => (
               <Reveal key={p.image} delay={i * 80}>
                 <article className="card-premium h-full overflow-hidden">
-                  <div className="relative aspect-[16/10]">
-                    <Photo src={p.image} alt={`${p.type} — ${p.location}`} className="absolute inset-0 h-full w-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ocean-950/55 via-transparent to-transparent" />
+                  <div className="relative aspect-[16/10] bg-ocean-900">
+                    <Photo
+                      src={p.image}
+                      alt={`${p.type} — ${p.location}`}
+                      sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
+                      quality={88}
+                      className="object-cover object-center"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ocean-950/45 via-transparent to-transparent" />
                     <p className="absolute bottom-5 left-5 text-2xl font-black text-white">{p.power}</p>
                   </div>
                   <div className="p-6"><p className="text-xs font-bold uppercase tracking-[.18em] text-solar-600">{p.location}</p><h3 className="mt-3 text-xl font-bold text-ocean-950 dark:text-white">{p.type}</h3><p className="mt-4 leading-7 text-slatebrand-500 dark:text-ocean-100">{p.detail}</p></div>
