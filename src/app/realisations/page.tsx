@@ -35,8 +35,14 @@ const projects = [
 ];
 
 export const metadata: Metadata = {
-  title: "Réalisations photovoltaïques — HelioSolar",
+  title: "Réalisations photovoltaïques",
   description: "Découvrez en images des réalisations photovoltaïques HelioSolar sur bâtiments agricoles et professionnels.",
+  alternates: { canonical: "/realisations" },
+  openGraph: {
+    url: "/realisations",
+    title: "Réalisations photovoltaïques | HelioSolar",
+    description: "Chantiers photovoltaïques documentés par des vues terrain et drone.",
+  },
 };
 
 export default function Page() {
@@ -53,9 +59,15 @@ export default function Page() {
             {projects.map((p, i) => (
               <Reveal key={p.image} delay={i * 90}>
                 <article className="group h-full overflow-hidden rounded-5xl border border-ocean-900/10 bg-white shadow-card dark:border-white/10 dark:bg-white/[0.035]">
-                  <div className="relative aspect-[16/10] overflow-hidden">
-                    <Photo src={p.image} alt={`${p.type} — ${p.location}`} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ocean-950/55 via-transparent to-transparent" />
+                  <div className="relative aspect-[16/10] overflow-hidden bg-ocean-900">
+                    <Photo
+                      src={p.image}
+                      alt={`${p.type} — ${p.location}`}
+                      sizes="(max-width: 767px) 100vw, 50vw"
+                      quality={88}
+                      className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ocean-950/45 via-transparent to-transparent" />
                     <p className="absolute bottom-6 left-6 text-3xl font-black text-white">{p.power}</p>
                   </div>
                   <div className="p-7">
@@ -71,9 +83,15 @@ export default function Page() {
           <Reveal>
             <div className="mt-16 overflow-hidden rounded-5xl bg-ocean-950 text-white">
               <div className="grid lg:grid-cols-[1.2fr_0.8fr]">
-                <div className="relative min-h-[320px]">
-                  <Photo src="/media/project-roof.jpg" alt="Vue drone d’une grande toiture photovoltaïque" className="absolute inset-0 h-full w-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-ocean-950/35" />
+                <div className="relative min-h-[280px] bg-ocean-900 sm:min-h-[360px]">
+                  <Photo
+                    src="/media/project-roof.jpg"
+                    alt="Vue drone d’une grande toiture photovoltaïque"
+                    sizes="(max-width: 1023px) 100vw, 60vw"
+                    quality={88}
+                    className="object-cover object-center"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-transparent to-ocean-950/25" />
                 </div>
                 <div className="p-8 sm:p-10 lg:self-center">
                   <p className="eyebrow text-solar-300">Vue drone</p>
