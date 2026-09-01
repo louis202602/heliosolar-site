@@ -2,6 +2,10 @@
 const nextConfig = {
   poweredByHeader: false,
   compress: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    qualities: [75, 85, 90],
+  },
   async headers() {
     return [
       {
