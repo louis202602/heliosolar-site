@@ -2,13 +2,13 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://heliosolarpro.fr";
 
 const organization = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "LocalBusiness"],
+  "@type": "Organization",
   name: "HelioSolar",
   url: siteUrl,
   logo: `${siteUrl}/brand/heliosolar-logo-full.png`,
   email: "contact@heliosolarpro.fr",
   description:
-    "Études, conception et installation de solutions photovoltaïques pour particuliers, professionnels, industriels et exploitations agricoles.",
+    "Projet photovoltaïque porté par Louis Preira à Marseille et en région Sud, en préparation avant lancement de l’activité d’installation.",
   areaServed: {
     "@type": "AdministrativeArea",
     name: "Marseille, Provence-Alpes-Côte d’Azur et régions voisines",
