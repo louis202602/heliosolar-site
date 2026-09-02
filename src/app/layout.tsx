@@ -24,11 +24,11 @@ const sora = Sora({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://heliosolarpro.fr"),
   title: {
-    default: "Installateur photovoltaïque à Marseille & région Sud | HelioSolar",
+    default: "Projet photovoltaïque à Marseille & région Sud | HelioSolar",
     template: "%s | HelioSolar",
   },
   description:
-    "HelioSolar conçoit et installe des solutions photovoltaïques à Marseille et en région Sud pour particuliers, professionnels, sites industriels et exploitations agricoles.",
+    "HelioSolar est un projet photovoltaïque porté par Louis Preira à Marseille et en région Sud, destiné aux particuliers, professionnels, sites industriels et exploitations agricoles.",
   applicationName: "HelioSolar",
   category: "Énergie solaire",
   alternates: { canonical: "/" },
@@ -41,15 +41,15 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/",
     siteName: "HelioSolar",
-    title: "Installateur photovoltaïque à Marseille & région Sud | HelioSolar",
+    title: "Projet photovoltaïque à Marseille & région Sud | HelioSolar",
     description:
-      "Étude, conception et installation photovoltaïque pour particuliers, professionnels, industriels et exploitations agricoles.",
-    images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "HelioSolar — solutions photovoltaïques" }],
+      "Présentation du projet HelioSolar, de l’expérience terrain de Louis Preira et des futures solutions photovoltaïques envisagées.",
+    images: [{ url: "/opengraph-image.png", width: 1200, height: 630, alt: "HelioSolar — projet photovoltaïque" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Installateur photovoltaïque à Marseille & région Sud | HelioSolar",
-    description: "Solutions photovoltaïques pour particuliers, professionnels, industriels et exploitations agricoles.",
+    title: "Projet photovoltaïque à Marseille & région Sud | HelioSolar",
+    description: "Projet photovoltaïque porté par Louis Preira à Marseille et en région Sud.",
     images: ["/opengraph-image.png"],
   },
   robots: { index: true, follow: true },
