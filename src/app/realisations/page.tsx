@@ -6,42 +6,42 @@ import { Reveal } from "@/components/Reveal";
 const projects = [
   {
     image: "/media/hero-agri.jpg",
-    location: "Projet agricole",
+    location: "Expérience agricole",
     power: "Vue drone",
     type: "Hangar photovoltaïque",
-    detail: "Réalisation sur bâtiment agricole documentée par drone, avec une couverture photovoltaïque dense et une intégration lisible dans son environnement.",
+    detail: "Média issu de l’expérience professionnelle de Louis Preira dans le photovoltaïque. Ce chantier n’est pas présenté comme une réalisation juridiquement effectuée par HelioSolar.",
   },
   {
     image: "/media/project-orchard.jpg",
-    location: "Environnement agricole",
+    location: "Expérience agricole",
     power: "Vue aérienne",
     type: "Toiture solaire",
-    detail: "Bâtiment équipé de panneaux photovoltaïques au cœur de son environnement, photographié depuis les airs.",
+    detail: "Bâtiment photovoltaïque documenté dans le cadre de l’expérience terrain de Louis Preira, sans attribution de sa réalisation à HelioSolar.",
   },
   {
     image: "/media/project-industrial.jpg",
-    location: "Site professionnel",
+    location: "Expérience professionnelle",
     power: "Grande surface",
     type: "Toiture photovoltaïque",
-    detail: "Implantation photovoltaïque sur une grande surface de toiture pour valoriser au maximum l’espace disponible.",
+    detail: "Grande surface photovoltaïque utilisée pour illustrer l’expérience professionnelle acquise par Louis Preira sur le terrain.",
   },
   {
     image: "/media/project-install.jpg",
-    location: "Chantier en toiture",
-    power: "Détail chantier",
+    location: "Expérience chantier",
+    power: "Détail terrain",
     type: "Implantation photovoltaïque",
-    detail: "Vue rapprochée de la couverture solaire pour montrer la disposition des panneaux et le résultat final.",
+    detail: "Vue rapprochée d’une installation photovoltaïque issue de l’expérience terrain de Louis Preira.",
   },
 ];
 
 export const metadata: Metadata = {
-  title: "Réalisations photovoltaïques",
-  description: "Découvrez en images des réalisations photovoltaïques HelioSolar sur bâtiments agricoles et professionnels.",
+  title: "Expérience terrain photovoltaïque",
+  description: "Découvrez en images l’expérience professionnelle photovoltaïque de Louis Preira, porteur du projet HelioSolar.",
   alternates: { canonical: "/realisations" },
   openGraph: {
     url: "/realisations",
-    title: "Réalisations photovoltaïques | HelioSolar",
-    description: "Chantiers photovoltaïques documentés par des vues terrain et drone.",
+    title: "Expérience terrain photovoltaïque | HelioSolar",
+    description: "Photos terrain et drone présentées dans leur contexte, sans attribuer à HelioSolar des chantiers antérieurs à son lancement.",
   },
 };
 
@@ -49,9 +49,9 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="Réalisations"
-        title="Des projets concrets, documentés et visibles."
-        description="Une sélection de chantiers photovoltaïques réels, photographiés sur le terrain."
+        eyebrow="Expérience terrain"
+        title="Des projets photovoltaïques réels, présentés avec leur contexte."
+        description="Ces médias illustrent l’expérience professionnelle de Louis Preira. Ils ne sont pas présentés comme des chantiers réalisés par HelioSolar lorsque ce n’est pas le cas."
       />
       <section className="py-24 sm:py-28">
         <div className="container-px">
@@ -86,7 +86,7 @@ export default function Page() {
                 <div className="relative min-h-[280px] bg-ocean-900 sm:min-h-[360px]">
                   <Photo
                     src="/media/project-roof.jpg"
-                    alt="Vue drone d’une grande toiture photovoltaïque"
+                    alt="Vue drone d’une grande toiture photovoltaïque issue de l’expérience professionnelle de Louis Preira"
                     sizes="(max-width: 1023px) 100vw, 60vw"
                     quality={88}
                     className="object-cover object-center"
@@ -95,9 +95,9 @@ export default function Page() {
                 </div>
                 <div className="p-8 sm:p-10 lg:self-center">
                   <p className="eyebrow text-solar-300">Vue drone</p>
-                  <p className="mt-3 text-2xl font-bold sm:text-3xl">Voir l’échelle réelle d’un chantier.</p>
-                  <p className="mt-4 leading-7 text-ocean-100">Des vues réelles permettent de juger immédiatement l’ampleur, l’intégration et le niveau de finition.</p>
-                  <a href="/demande-etude" className="btn-sheen mt-7 inline-flex rounded-full bg-solar-500 px-6 py-3 text-sm font-bold text-ocean-950">Demander mon étude</a>
+                  <p className="mt-3 text-2xl font-bold sm:text-3xl">Voir l’échelle réelle d’une installation.</p>
+                  <p className="mt-4 leading-7 text-ocean-100">Ces vues permettent d’illustrer concrètement l’expérience terrain acquise sur des installations photovoltaïques.</p>
+                  <a href="/demande-etude" className="btn-sheen mt-7 inline-flex rounded-full bg-solar-500 px-6 py-3 text-sm font-bold text-ocean-950">Présenter mon projet</a>
                 </div>
               </div>
             </div>
