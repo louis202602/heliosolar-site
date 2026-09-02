@@ -8,13 +8,13 @@ const sectors = [
     title: "Résidentiel",
     metric: "3 à 36 kWc",
     href: "/residentiel",
-    text: "Autoconsommation, stockage et pilotage pour réduire durablement votre facture.",
+    text: "Autoconsommation, stockage et pilotage : des solutions prévues pour adapter le projet aux usages réels.",
   },
   {
     title: "Professionnels",
     metric: "36 à 100 kWc",
     href: "/professionnels-industriels",
-    text: "Toitures d’activité, tertiaire et ombrières dimensionnées autour de vos usages réels.",
+    text: "Toitures d’activité, tertiaire et ombrières : des projets à dimensionner autour des consommations et contraintes du site.",
   },
   {
     title: "Industrie & agriculture",
@@ -27,32 +27,32 @@ const sectors = [
 const refs = [
   {
     image: "/media/project-orchard.jpg",
-    location: "Projet agricole",
+    location: "Expérience terrain agricole",
     type: "Toiture photovoltaïque",
     power: "Vue drone",
-    detail: "Bâtiment photovoltaïque intégré à son environnement, documenté par prise de vue aérienne.",
+    detail: "Média issu de l’expérience professionnelle de Louis Preira dans le photovoltaïque, présenté sans attribuer ce chantier à HelioSolar.",
   },
   {
     image: "/media/project-install.jpg",
-    location: "Chantier en toiture",
+    location: "Expérience terrain",
     type: "Implantation photovoltaïque",
     power: "Détail chantier",
-    detail: "Vue rapprochée d’une installation en toiture pour montrer l’implantation et le niveau de finition.",
+    detail: "Vue d’une installation photovoltaïque documentant l’expérience terrain de Louis Preira, sans attribution de réalisation à HelioSolar.",
   },
   {
     image: "/media/project-roof.jpg",
-    location: "Grande toiture",
+    location: "Expérience grande toiture",
     type: "Couverture solaire",
-    power: "Surface valorisée",
-    detail: "Vue aérienne d’une toiture équipée sur une grande surface disponible.",
+    power: "Surface équipée",
+    detail: "Vue aérienne utilisée pour illustrer l’expérience professionnelle acquise sur des projets photovoltaïques de grande surface.",
   },
 ];
 
 const method = [
   ["01", "Analyse", "Consommation, toiture, irradiation, ombrages et potentiel économique."],
-  ["02", "Conception", "Dimensionnement précis, choix des équipements et implantation optimisée."],
-  ["03", "Réalisation", "Pose, coordination, contrôle qualité et documentation du chantier."],
-  ["04", "Performance", "Mise en service, supervision et accompagnement dans la durée."],
+  ["02", "Conception", "Dimensionnement, choix des équipements et implantation à valider selon les contraintes du projet."],
+  ["03", "Préparation", "Organisation du chantier, sécurité, ressources, contrôles et documentation avant exécution."],
+  ["04", "Suivi", "Contrôle des résultats, documentation et accompagnement selon le périmètre contractuel futur."],
 ] as const;
 
 function Arrow() {
@@ -69,47 +69,47 @@ export default function AccueilPage() {
       <section className="relative overflow-hidden bg-ocean-950 text-white">
         <div className="container-px grid min-h-[700px] items-center gap-12 py-16 lg:grid-cols-[.9fr_1.1fr] lg:py-24">
           <div>
-            <p className="eyebrow text-solar-300">Ingénierie photovoltaïque • Marseille & région Sud</p>
+            <p className="eyebrow text-solar-300">Projet photovoltaïque • Marseille & région Sud</p>
             <h1 className="mt-5 text-5xl font-extrabold leading-[.98] tracking-[-.045em] sm:text-6xl lg:text-7xl">
-              Votre toiture devient <span className="text-gradient block">une source de performance.</span>
+              Votre toiture peut devenir <span className="text-gradient block">une source de performance.</span>
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-ocean-100">
-              HelioSolar conçoit, installe et supervise des centrales photovoltaïques sur mesure pour particuliers,
-              professionnels, industriels et exploitations agricoles.
+              HelioSolar est un projet photovoltaïque porté par Louis Preira. Le site présente son expérience terrain,
+              les solutions envisagées et permet de manifester un intérêt avant le lancement juridique complet de l’activité d’installation.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
-              <Button href="/demande-etude">Demander mon étude gratuite <Arrow /></Button>
-              <Button href="/realisations" variant="secondary">Voir les réalisations</Button>
+              <Button href="/demande-etude">Présenter mon projet <Arrow /></Button>
+              <Button href="/realisations" variant="secondary">Voir l’expérience terrain</Button>
             </div>
             <div className="mt-10 grid grid-cols-2 gap-5 border-t border-white/10 pt-7">
-              <div><p className="text-2xl font-bold">QualiPV 500</p><p className="text-xs text-ocean-300">Qualification photovoltaïque</p></div>
-              <div><p className="text-2xl font-bold">360°</p><p className="text-xs text-ocean-300">Étude, pose et suivi</p></div>
+              <div><p className="text-2xl font-bold">QualiPV 500</p><p className="text-xs text-ocean-300">Qualification obtenue par Louis Preira</p></div>
+              <div><p className="text-2xl font-bold">Terrain</p><p className="text-xs text-ocean-300">Expérience photovoltaïque documentée</p></div>
             </div>
           </div>
           <div className="relative aspect-[16/10] overflow-hidden rounded-[30px] border border-white/10 bg-ocean-900 shadow-panel sm:aspect-[4/3]">
             <Photo
               src="/media/hero-agri.jpg"
-              alt="Réalisation photovoltaïque agricole HelioSolar vue par drone"
+              alt="Expérience professionnelle photovoltaïque agricole de Louis Preira, vue par drone"
               eager
               sizes="(max-width: 1023px) 100vw, 52vw"
               quality={90}
               className="object-cover object-center"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ocean-950/30 via-transparent to-transparent" />
-            <div className="absolute bottom-5 left-5 rounded-full bg-ocean-950/75 px-4 py-2 text-xs font-bold uppercase tracking-[.16em]">Réalisation réelle • vue drone</div>
+            <div className="absolute bottom-5 left-5 rounded-full bg-ocean-950/75 px-4 py-2 text-xs font-bold uppercase tracking-[.16em]">Expérience terrain • vue drone</div>
           </div>
         </div>
       </section>
 
       <section className="border-b border-ocean-900/10 bg-white py-8 dark:bg-ocean-950">
         <div className="container-px grid gap-5 text-sm font-semibold sm:grid-cols-3">
-          <p>Études techniques personnalisées</p><p>Installations professionnelles</p><p>Suivi énergétique structuré</p>
+          <p>Étude exploratoire du besoin</p><p>Préparation technique du projet</p><p>Qualification et expérience terrain</p>
         </div>
       </section>
 
       <section className="py-24">
         <div className="container-px">
-          <Reveal><p className="eyebrow">Solutions</p><h2 className="mt-4 text-4xl font-bold text-ocean-950 dark:text-white sm:text-5xl">Une expertise adaptée à chaque échelle.</h2></Reveal>
+          <Reveal><p className="eyebrow">Solutions envisagées</p><h2 className="mt-4 text-4xl font-bold text-ocean-950 dark:text-white sm:text-5xl">Une approche adaptée à chaque échelle.</h2></Reveal>
           <div className="mt-12 grid gap-5 lg:grid-cols-3">
             {sectors.map((s, i) => (
               <Reveal key={s.title} delay={i * 80}>
@@ -127,18 +127,18 @@ export default function AccueilPage() {
 
       <section className="bg-ocean-950 py-24 text-white">
         <div className="container-px grid gap-10 lg:grid-cols-[.72fr_1.28fr] lg:items-center">
-          <Reveal><p className="eyebrow text-solar-300">Immersion chantier</p><h2 className="mt-4 text-4xl font-bold sm:text-5xl">Des réalisations visibles, pas seulement promises.</h2><p className="mt-6 leading-8 text-ocean-100">Vues drone, implantation et résultat final : nos médias montrent concrètement le niveau de chantier.</p></Reveal>
+          <Reveal><p className="eyebrow text-solar-300">Expérience terrain</p><h2 className="mt-4 text-4xl font-bold sm:text-5xl">Des médias réels, présentés avec leur contexte.</h2><p className="mt-6 leading-8 text-ocean-100">Ces photos illustrent l’expérience photovoltaïque acquise par Louis Preira. Elles ne sont pas présentées comme des chantiers réalisés juridiquement par HelioSolar.</p></Reveal>
           <Reveal>
             <Link href="/realisations" className="relative block aspect-video overflow-hidden rounded-[30px] border border-white/10 bg-ocean-900">
               <Photo
                 src="/media/project-industrial.jpg"
-                alt="Grande toiture photovoltaïque professionnelle"
+                alt="Grande toiture photovoltaïque issue de l’expérience professionnelle de Louis Preira"
                 sizes="(max-width: 1023px) 100vw, 60vw"
                 quality={88}
                 className="object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ocean-950/50 via-transparent to-transparent" />
-              <p className="absolute bottom-6 left-6 text-xl font-bold">Découvrir nos chantiers</p>
+              <p className="absolute bottom-6 left-6 text-xl font-bold">Découvrir l’expérience terrain</p>
             </Link>
           </Reveal>
         </div>
@@ -146,7 +146,7 @@ export default function AccueilPage() {
 
       <section className="py-24">
         <div className="container-px">
-          <Reveal><p className="eyebrow">Références</p><h2 className="mt-4 text-4xl font-bold text-ocean-950 dark:text-white sm:text-5xl">Le terrain comme meilleure preuve.</h2></Reveal>
+          <Reveal><p className="eyebrow">Références d’expérience</p><h2 className="mt-4 text-4xl font-bold text-ocean-950 dark:text-white sm:text-5xl">Le terrain comme preuve d’expérience.</h2></Reveal>
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {refs.map((p, i) => (
               <Reveal key={p.image} delay={i * 80}>
@@ -172,14 +172,14 @@ export default function AccueilPage() {
 
       <section className="bg-ocean-50 py-24 dark:bg-white/[.02]">
         <div className="container-px grid gap-12 lg:grid-cols-[.8fr_1.2fr]">
-          <Reveal><p className="eyebrow">Notre méthode</p><h2 className="mt-4 text-4xl font-bold text-ocean-950 dark:text-white sm:text-5xl">La maîtrise du projet, de la donnée au terrain.</h2></Reveal>
+          <Reveal><p className="eyebrow">Méthode préparée</p><h2 className="mt-4 text-4xl font-bold text-ocean-950 dark:text-white sm:text-5xl">Structurer chaque projet avant engagement.</h2></Reveal>
           <div className="divide-y divide-ocean-900/10 border-y border-ocean-900/10">
             {method.map(([n, t, x]) => <div key={n} className="grid gap-3 py-7 sm:grid-cols-[60px_160px_1fr]"><span className="text-xs font-bold text-solar-600">{n}</span><h3 className="text-xl font-bold text-ocean-950 dark:text-white">{t}</h3><p className="leading-7 text-slatebrand-500 dark:text-ocean-100">{x}</p></div>)}
           </div>
         </div>
       </section>
 
-      <section className="py-24"><div className="container-px"><div className="rounded-5xl bg-gradient-to-br from-ocean-700 to-ocean-950 px-8 py-14 text-white"><p className="eyebrow text-solar-300">Votre projet</p><h2 className="mt-4 text-3xl font-bold sm:text-4xl">Transformons votre potentiel solaire en projet concret.</h2><div className="mt-8"><Button href="/demande-etude">Lancer mon étude <Arrow /></Button></div></div></div></section>
+      <section className="py-24"><div className="container-px"><div className="rounded-5xl bg-gradient-to-br from-ocean-700 to-ocean-950 px-8 py-14 text-white"><p className="eyebrow text-solar-300">Votre projet</p><h2 className="mt-4 text-3xl font-bold sm:text-4xl">Présentez votre besoin photovoltaïque pour préparer la suite.</h2><div className="mt-8"><Button href="/demande-etude">Présenter mon projet <Arrow /></Button></div></div></div></section>
     </>
   );
 }
